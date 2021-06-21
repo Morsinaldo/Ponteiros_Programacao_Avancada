@@ -4,6 +4,9 @@
 
 int main()
 {
+
+  //&: retorna o ENDEREÇO da variável
+  //*: recupera o CONTEÚDO DO ENDEREÇO
   int i;
 
   GC_INIT();	/* Optional on Linux/X86; see below.  */
