@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h> // inclusão da função clock()
+#include <time.h>
 
 /* --------------- QUESTÃO 13 COM TEMPO DE EXECUÇÃO --------------------
 
@@ -14,7 +14,7 @@ int main(){
 
     int n;
     float *v;
-    clock_t t_inicial, t_final, tempo;
+    clock_t tInicial, tFinal;
 
     printf("Digite quantos números serão informados: ");
     scanf("%d", &n);
@@ -25,7 +25,7 @@ int main(){
         scanf("%f", &v[i]);
     }
 
-    t_inicial = clock(); // Tempo imediatamente antes da ordenação dos números
+    tInicial = clock(); // Tempo imediatamente antes da ordenação dos números
 
     // Ordenando os números em ordem crescente
     for(int i = 0; i < n-1; i++){
@@ -36,15 +36,15 @@ int main(){
         }
     }
 
-    t_final = clock(); // Tempo imediatamente após o término da ordenação dos números
+    tFinal = clock(); // Tempo imediatamente após o término da ordenação dos números
 
     // Imprimindo os números
     for(int i = 0; i < n; i++){
         printf("%f ", v[i]);
     }
 
-    double tempo = (double)(t_final - t_inicial)/CLOCKS_PER_SEC;
-    printf("\nTempo de execucao: %lf", tempo);
+    double tExecucao = (double)((tFinal - tInicial)/CLOCKS_PER_SEC);
+    printf("\nTempo de execucao: %lf", tExecucao);
     free(v); // Liberação da memória alocada
 
     return 0;
@@ -62,12 +62,8 @@ void trocaNumero(float *a, float *b){
 
 /* ------------------------ QUESTÃO 14 COM TEMPO DE EXECUÇÃO ----------------------
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h> // inclusão da função clock()
-
 // Assinatura das funções
-int compare (const void *a, const void *b);
+int comparacao (const void *a, const void *b);
 
 int main(){
 
@@ -76,7 +72,7 @@ int main(){
 
     int n;
     float *v;
-    clock_t t_inicial, t_final;
+    clock_t tInicial, tFinal;
 
     printf("Digite 8quantos números serão informados: ");
     scanf("%d", &n);
@@ -87,26 +83,26 @@ int main(){
         scanf("%f", &v[i]);
     }
 
-    t_inicial = clock(); // Tempo imediatamente antes da ordenação dos números
+    tInicial = clock(); // Tempo imediatamente antes da ordenação dos números
 
-    qsort(v, n, sizeof(float), compare);
+    qsort(v, n, sizeof(float), comparacao);
 
-    t_final = clock(); // Tempo imediatamente após o término da ordenação dos números
+    tFinal = clock(); // Tempo imediatamente após o término da ordenação dos números
 
         // Imprimindo os números
     for(int i = 0; i < n; i++){
         printf("%f ", v[i]);
     }
 
-    double tempo = (double)(t_final - t_inicial)/CLOCKS_PER_SEC;
-    printf("\nTempo de execucao: %lf", tempo);
+    double tExecucao = (double)((tFinal - tInicial)/CLOCKS_PER_SEC);
+    printf("\nTempo de execucao: %lf", tExecucao);
 
     free(v); // Liberação da memória alocada
     return 0;
 }
 
 // ---------- FUNÇÕES DA 14 -----------
-int compare (const void *a, const void *b){
+int comparacao (const void *a, const void *b){
     if(*(float*)a < *(float*)b){
     return -1;
   }else if(*(float*)a > *(float*)b){
@@ -116,3 +112,4 @@ int compare (const void *a, const void *b){
   }
 }
 */
+
