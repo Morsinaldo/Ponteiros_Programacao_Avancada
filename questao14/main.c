@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 // Assinatura das funções
-int compare (const void *a, const void *b);
+int comparacao (const void *a, const void *b);
 
 int main(){
 
@@ -21,7 +21,7 @@ int main(){
         scanf("%f", &v[i]);
     }
 
-    qsort(v, n, sizeof(float), compare); // Chamando a função qsort
+    qsort(v, n, sizeof(float), comparacao); // Chamando a função qsort
 
     // Imprimindo os números
     for(int i = 0; i < n; i++){
@@ -33,7 +33,7 @@ int main(){
 }
 
 // Funções
-int compare (const void *a, const void *b){
+int comparacao (const void *a, const void *b){
     if(*(float*)a < *(float*)b){
     return -1;
   }else if(*(float*)a > *(float*)b){
